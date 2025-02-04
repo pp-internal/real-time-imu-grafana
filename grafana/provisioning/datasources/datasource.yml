@@ -1,0 +1,21 @@
+apiVersion: 1
+deleteDatasources:
+  - name: InfluxDB
+    orgId: 1
+
+datasources:
+  - name: InfluxDB
+    type: influxdb
+    access: proxy
+    url: http://influxdb:8086
+    basicAuth: false
+    isDefault: true
+    database: BUCKET #${INFLUXDB_BUCKET}
+    user: admin
+    secureJsonData:
+      token: DMB6O-ECjWdUhGJD-Zc-qLokEtJFC-p05bIg2w8gYwVqgzmQ_WaGXLuBm-N_Sl0wWUClgqzN4PlLfqTxUozKeQ== #${INFLUXDB_TOKEN}
+    jsonData:
+      httpMode: POST
+      organization: ORG #${INFLUXDB_ORG}
+      version: Flux
+    readOnly: false

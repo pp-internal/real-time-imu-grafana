@@ -1,0 +1,21 @@
+apiVersion: 1
+providers:
+  - name: "PPG"
+    orgId: 1
+    folder: ""
+    type: file
+    options:
+      path: /var/lib/grafana/dashboards
+    updateIntervalSeconds: 1
+    disableDeletion: false
+    editable: true
+    
+  - name: "BMI"
+    orgId: 1
+    folder: ""
+    type: file
+    options:
+      path: /var/lib/grafana/dashboards
+    updateIntervalSeconds: 1
+    disableDeletion: false
+    editable: true

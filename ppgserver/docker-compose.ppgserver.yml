@@ -1,0 +1,24 @@
+services:
+  ppgserver:
+    build:
+      context: ./ppgserver
+    container_name: ppgserver
+    ports:
+      - "5000:5000"
+    environment:
+      - INFLUXDB_URL=${INFLUXDB_URL}
+      - INFLUXDB_TOKEN=${INFLUXDB_TOKEN}
+      - INFLUXDB_ORG=${INFLUXDB_ORG}
+      - INFLUXDB_BUCKET=${INFLUXDB_BUCKET}
+    depends_on:
+      - influxdb
+    networks:
+      - influx_network
+
+networks:
+  influx_network:
+    driver: bridge
+
+volumes:
+  influxdb-storage:
+
